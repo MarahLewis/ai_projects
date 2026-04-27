@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Chat</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+  <!-- Page content -->
+  <div class="container py-5 text-center">
+    <i class="bi bi-robot display-1 text-primary"></i>
+    <h1 class="fw-bold mt-3">AI Assistant</h1>
+    <p class="text-muted">Powered by Groq — click the chat bubble to get started.</p>
+
+   
+
+    <!-- Setup Steps -->
+    <h4 class="fw-bold mt-5 mb-3">How to get started</h4>
+    <div class="row justify-content-center g-3 text-start">
+      <div class="col-md-8">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item bg-transparent d-flex gap-3 align-items-start">
+            <span class="badge bg-primary rounded-pill mt-1">1</span>
+            <span>Go to <a href="https://console.groq.com" target="_blank">console.groq.com</a> and create a <strong>free account</strong> — no credit card needed.</span>
+          </li>
+          <li class="list-group-item bg-transparent d-flex gap-3 align-items-start">
+            <span class="badge bg-primary rounded-pill mt-1">2</span>
+            <span>In the left sidebar click <strong>API Keys</strong>, then click <strong>Create API Key</strong>.</span>
+          </li>
+          <li class="list-group-item bg-transparent d-flex gap-3 align-items-start">
+            <span class="badge bg-primary rounded-pill mt-1">3</span>
+            <span>Copy the key — it starts with <code>gsk_</code>. You only see it once, so copy it now.</span>
+          </li>
+          <li class="list-group-item bg-transparent d-flex gap-3 align-items-start">
+            <span class="badge bg-primary rounded-pill mt-1">4</span>
+            <span>Click the <strong>chat bubble</strong> at the bottom-right, paste your key, and start chatting.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Groq Links -->
+    <h4 class="fw-bold mt-5 mb-3">Groq Resources</h4>
+    <div class="row justify-content-center g-3">
+      <div class="col-md-4">
+        <a href="https://console.groq.com" target="_blank" class="list-group-item list-group-item-action border rounded p-3 d-flex align-items-center gap-2">
+          <i class="bi bi-person-circle text-primary fs-5"></i>
+          <div>
+            <div class="fw-semibold small">Groq Console</div>
+            <div class="text-muted" style="font-size:.75rem">Sign up &amp; manage your API keys</div>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4">
+        <a href="https://console.groq.com/docs/models" target="_blank" class="list-group-item list-group-item-action border rounded p-3 d-flex align-items-center gap-2">
+          <i class="bi bi-cpu text-success fs-5"></i>
+          <div>
+            <div class="fw-semibold small">Available Models</div>
+            <div class="text-muted" style="font-size:.75rem">See all models &amp; their speed</div>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4">
+        <a href="https://console.groq.com/docs/rate-limits" target="_blank" class="list-group-item list-group-item-action border rounded p-3 d-flex align-items-center gap-2">
+          <i class="bi bi-speedometer2 text-warning fs-5"></i>
+          <div>
+            <div class="fw-semibold small">Rate Limits</div>
+            <div class="text-muted" style="font-size:.75rem">Free tier limits &amp; quotas</div>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4">
+        <a href="https://console.groq.com/docs/quickstart" target="_blank" class="list-group-item list-group-item-action border rounded p-3 d-flex align-items-center gap-2">
+          <i class="bi bi-book text-info fs-5"></i>
+          <div>
+            <div class="fw-semibold small">Quickstart Guide</div>
+            <div class="text-muted" style="font-size:.75rem">Official Groq documentation</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Floating chat button -->
+  <button class="btn btn-primary rounded-circle shadow position-fixed bottom-0 end-0 m-4 d-flex align-items-center justify-content-center"
+    style="width:60px;height:60px;font-size:1.5rem;z-index:1040;" data-bs-toggle="offcanvas" data-bs-target="#chatPanel">
+    <i class="bi bi-chat-dots-fill"></i>
+  </button>
+
+  <!-- Chat side panel -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="chatPanel" style="width:420px;">
+    <div class="offcanvas-header bg-primary text-white py-2 px-3">
+      <div class="d-flex align-items-center gap-2">
+        <i class="bi bi-robot fs-5"></i>
+        <div>
+          <div class="fw-bold lh-1">AI Assistant</div>
+          <div class="opacity-75" style="font-size:0.7rem;">llama-3.1-8b-instant &middot; Programming &amp; System Design only</div>
+        </div>
+      </div>
+      <div class="d-flex align-items-center gap-3 ms-auto">
+        <button class="btn btn-sm btn-outline-light py-0 px-2" onclick="clearChat()" title="Clear chat">
+          <i class="bi bi-trash"></i> Clear
+        </button>
+        <button class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+      </div>
+    </div>
+
+    <!-- API Key -->
+    <div class="p-2 border-bottom bg-light">
+      <div class="input-group input-group-sm">
+        <span class="input-group-text bg-white"><i class="bi bi-key"></i></span>
+        <input id="apiKey" type="password" class="form-control" placeholder="Paste your gsk_... API key">
+        <button class="btn btn-outline-secondary" onclick="toggleKey()">Show</button>
+      </div>
+      <div class="form-text px-1">No key? <a href="https://console.groq.com" target="_blank">Get one free at console.groq.com</a></div>
+    </div>
+
+    <!-- Messages -->
+    <div id="messages" class="p-3 d-flex flex-column gap-3 bg-white flex-grow-1 overflow-y-auto">
+      <div class="text-center text-muted small my-auto">Ask a programming or system design question to get started.</div>
+    </div>
+
+    <!-- Input -->
+    <div class="p-3 border-top bg-light">
+      <div class="input-group">
+        <input id="chatInput" type="text" class="form-control" placeholder="Ask a programming or system design question…">
+        <button id="sendBtn" class="btn btn-primary" onclick="send()">
+          <i class="bi bi-send-fill"></i>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    const SYSTEM_PROMPT = {
+      role: 'system',
+      content: `You are a programming and system design assistant for an IS247 and IS436 courses.
+You ONLY answer questions related to:
+- Programming (any language — Python, Java, JavaScript, SQL, etc.)
+- System design and software architecture
+- Data structures and algorithms
+- Databases and APIs
+- Web development concepts
+
+If a student asks about ANYTHING outside these topics, respond with exactly:
+"I can only help with programming and system design questions. Please ask something related to coding, software architecture, or technology concepts."
+
+Do not make exceptions. Do not answer even partially off-topic questions.`
+    };
+
+    const history = [SYSTEM_PROMPT];
+
+    document.getElementById('chatPanel').addEventListener('shown.bs.offcanvas', () => {
+      document.getElementById('chatInput').focus();
+    });
+
+    function clearChat() {
+      history.length = 1; // keep system prompt
+      const box = document.getElementById('messages');
+      box.innerHTML = '<div class="text-center text-muted small my-auto">Chat cleared. Ask a new question!</div>';
+    }
+
+    function toggleKey() {
+      const el = document.getElementById('apiKey');
+      el.type = el.type === 'password' ? 'text' : 'password';
+      el.nextElementSibling.textContent = el.type === 'password' ? 'Show' : 'Hide';
+    }
+
+    function bubble(sender, text, isUser) {
+      const box = document.getElementById('messages');
+      const hint = box.querySelector('.my-auto');
+      if (hint) hint.remove();
+
+      const wrap = document.createElement('div');
+      wrap.className = 'd-flex flex-column ' + (isUser ? 'align-items-end' : 'align-items-start');
+      wrap.innerHTML =
+        '<small class="text-muted px-1">' + sender + '</small>' +
+        '<div class="px-3 py-2 rounded-3 ' + (isUser ? 'bg-primary text-white' : 'bg-light border') + '" style="max-width:85%;white-space:pre-wrap;font-size:.88rem">' + text + '</div>';
+
+      box.appendChild(wrap);
+      box.scrollTop = box.scrollHeight;
+      return wrap.querySelector('div');
+    }
+
+    async function send() {
+      const input  = document.getElementById('chatInput');
+      const btn    = document.getElementById('sendBtn');
+      const apiKey = document.getElementById('apiKey').value.trim();
+      const text   = input.value.trim();
+
+      if (!text) return;
+      if (!apiKey) { alert('Please paste your Groq API key.'); return; }
+
+      bubble('You', text, true);
+      input.value = '';
+      btn.disabled = input.disabled = true;
+      history.push({ role: 'user', content: text });
+
+      const thinking = bubble('Assistant', 'Thinking…', false);
+      thinking.classList.add('fst-italic', 'text-muted');
+
+      try {
+        const res  = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + apiKey },
+          body: JSON.stringify({ model: 'llama-3.1-8b-instant', messages: history })
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error?.message || res.statusText);
+        const reply = data.choices[0].message.content;
+        history.push({ role: 'assistant', content: reply });
+        thinking.textContent = reply;
+        thinking.classList.remove('fst-italic', 'text-muted');
+      } catch (e) {
+        thinking.textContent = 'Error: ' + e.message;
+        thinking.classList.replace('text-muted', 'text-danger');
+        history.pop();
+      }
+
+      btn.disabled = input.disabled = false;
+      input.focus();
+    }
+
+    document.getElementById('chatInput').addEventListener('keydown', e => {
+      if (e.key === 'Enter') send();
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MCP Tools — IS247</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">
+        <i class="bi bi-plugin me-2"></i>MCP Tools
+      </a>
+      <div class="d-flex gap-2">
+        <a href="chat.html" class="btn btn-sm btn-outline-light">
+          <i class="bi bi-robot me-1"></i>AI Chat
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="bg-dark text-white py-5">
+    <div class="container text-center py-3">
+      <div class="display-2 mb-3"><i class="bi bi-plugin"></i></div>
+      <h1 class="fw-bold display-5 mb-3">Model Context Protocol</h1>
+      <p class="lead opacity-75 mb-4" style="max-width:600px;margin:auto;">
+        MCP lets AI models like Claude connect to real tools — file systems, databases, APIs, and more.
+        Build powerful AI workflows without writing complex integrations.
+      </p>
+      <button class="btn btn-light btn-lg fw-semibold px-5 shadow" data-bs-toggle="offcanvas" data-bs-target="#chatPanel">
+        <i class="bi bi-chat-dots-fill me-2"></i>Ask about MCP
+      </button>
+    </div>
+  </div>
+
+  <!-- WHAT IS MCP -->
+  <div class="container py-5">
+    <div class="row align-items-center g-4">
+      <div class="col-md-6">
+        <h2 class="fw-bold mb-3">What is MCP?</h2>
+        <p class="text-muted">Model Context Protocol (MCP) is an open standard developed by Anthropic that lets AI assistants securely connect to external data sources and tools.</p>
+        <p class="text-muted">Think of it like a <strong>USB standard for AI</strong> — instead of building a custom integration for every tool, MCP gives you one universal way to connect Claude to anything.</p>
+        <div class="d-flex gap-2 mt-3 flex-wrap">
+          <span class="badge bg-dark fs-6 px-3 py-2">Open Standard</span>
+          <span class="badge bg-dark fs-6 px-3 py-2">Secure</span>
+          <span class="badge bg-dark fs-6 px-3 py-2">Extensible</span>
+          <span class="badge bg-dark fs-6 px-3 py-2">Local or Remote</span>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card border-0 shadow-sm">
+          <div class="card-header bg-dark text-white fw-semibold small">
+            <i class="bi bi-file-code me-2"></i>claude_desktop_config.json
+          </div>
+          <div class="card-body bg-white p-0">
+            <pre class="m-0 p-3 rounded-bottom" style="font-size:.82rem;background:#1e1e1e;color:#d4d4d4;"><code>{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/Users/you/Desktop"
+      ]
+    }
+  }
+}</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MCP TOOLS -->
+  <div class="bg-white py-5">
+    <div class="container">
+      <h2 class="fw-bold text-center mb-2">Popular MCP Servers</h2>
+      <p class="text-muted text-center mb-5">Drop these into your Claude Desktop config and unlock new capabilities instantly.</p>
+      <div class="row g-4">
+
+        <div class="col-md-4">
+          <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body">
+              <div class="d-flex align-items-center gap-2 mb-3">
+                <span class="fs-3"><i class="bi bi-folder-fill text-warning"></i></span>
+                <div>
+                  <div class="fw-bold">Filesystem</div>
+                  <div class="text-muted" style="font-size:.75rem;">@modelcontextprotocol/server-filesystem</div>
+                </div>
+              </div>
+              <p class="text-muted small">Read, write, and navigate files on your local machine. Claude can open documents, edit code files, and organize folders.</p>
+              <pre class="rounded p-2 small mb-0" style="background:#f8f9fa;font-size:.75rem;">"command": "npx",
+"args": ["-y",
+  "@modelcontextprotocol/server-filesystem",
+  "/your/path"]</pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body">
+              <div class="d-flex align-items-center gap-2 mb-3">
+                <span class="fs-3"><i class="bi bi-github text-dark"></i></span>
+                <div>
+                  <div class="fw-bold">GitHub</div>
+                  <div class="text-muted" style="font-size:.75rem;">@modelcontextprotocol/server-github</div>
+                </div>
+              </div>
+              <p class="text-muted small">Search repos, read files, create issues and pull requests, and manage GitHub directly from Claude.</p>
+              <pre class="rounded p-2 small mb-0" style="background:#f8f9fa;font-size:.75rem;">"command": "npx",
+"args": ["-y",
+  "@modelcontextprotocol/server-github"],
+"env": {"GITHUB_TOKEN": "ghp_..."}</pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body">
+              <div class="d-flex align-items-center gap-2 mb-3">
+                <span class="fs-3"><i class="bi bi-database-fill text-primary"></i></span>
+                <div>
+                  <div class="fw-bold">SQLite</div>
+                  <div class="text-muted" style="font-size:.75rem;">@modelcontextprotocol/server-sqlite</div>
+                </div>
+              </div>
+              <p class="text-muted small">Query and update SQLite databases using plain English. Claude writes and runs the SQL for you.</p>
+              <pre class="rounded p-2 small mb-0" style="background:#f8f9fa;font-size:.75rem;">"command": "npx",
+"args": ["-y",
+  "@modelcontextprotocol/server-sqlite",
+  "--db-path", "/path/to/db.sqlite"]</pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body">
+              <div class="d-flex align-items-center gap-2 mb-3">
+                <span class="fs-3"><i class="bi bi-globe text-success"></i></span>
+                <div>
+                  <div class="fw-bold">Fetch (Web)</div>
+                  <div class="text-muted" style="font-size:.75rem;">@modelcontextprotocol/server-fetch</div>
+                </div>
+              </div>
+              <p class="text-muted small">Let Claude fetch and read live web pages, documentation, and APIs in real time during your conversation.</p>
+              <pre class="rounded p-2 small mb-0" style="background:#f8f9fa;font-size:.75rem;">"command": "npx",
+"args": ["-y",
+  "@modelcontextprotocol/server-fetch"]</pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body">
+              <div class="d-flex align-items-center gap-2 mb-3">
+                <span class="fs-3"><i class="bi bi-browser-chrome text-danger"></i></span>
+                <div>
+                  <div class="fw-bold">Puppeteer</div>
+                  <div class="text-muted" style="font-size:.75rem;">@modelcontextprotocol/server-puppeteer</div>
+                </div>
+              </div>
+              <p class="text-muted small">Control a real browser — take screenshots, fill forms, click buttons, and scrape dynamic web pages.</p>
+              <pre class="rounded p-2 small mb-0" style="background:#f8f9fa;font-size:.75rem;">"command": "npx",
+"args": ["-y",
+  "@modelcontextprotocol/server-puppeteer"]</pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body">
+              <div class="d-flex align-items-center gap-2 mb-3">
+                <span class="fs-3"><i class="bi bi-memory text-info"></i></span>
+                <div>
+                  <div class="fw-bold">Memory</div>
+                  <div class="text-muted" style="font-size:.75rem;">@modelcontextprotocol/server-memory</div>
+                </div>
+              </div>
+              <p class="text-muted small">Give Claude persistent memory across conversations. Store facts, preferences, and notes that survive session restarts.</p>
+              <pre class="rounded p-2 small mb-0" style="background:#f8f9fa;font-size:.75rem;">"command": "npx",
+"args": ["-y",
+  "@modelcontextprotocol/server-memory"]</pre>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- PLAYWRIGHT SETUP -->
+  <div class="container py-5">
+    <div class="text-center mb-5">
+      <span class="badge bg-danger px-3 py-2 mb-2">Step-by-Step Guide</span>
+      <h2 class="fw-bold">Install Playwright MCP Server</h2>
+      <p class="text-muted">Let Claude control a real browser — take screenshots, fill forms, scrape pages, and automate the web.</p>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-md-9">
+
+        <!-- Step 1 -->
+        <div class="card border-0 shadow-sm mb-3">
+          <div class="card-body d-flex gap-3">
+            <div class="rounded-circle bg-dark text-white d-flex align-items-center justify-content-center fw-bold flex-shrink-0" style="width:40px;height:40px;">1</div>
+            <div class="w-100">
+              <div class="fw-semibold mb-1">Install Node.js</div>
+              <p class="text-muted small mb-2">Download the <strong>LTS version</strong> from <a href="https://nodejs.org" target="_blank">nodejs.org</a> and install it. Then verify in your terminal:</p>
+              <pre class="rounded p-2 mb-0" style="background:#1e1e1e;color:#d4d4d4;font-size:.82rem;"><code>node --version
+npm --version</code></pre>
+              <div class="text-muted small mt-2"><i class="bi bi-info-circle me-1"></i>You should see version numbers — if not, restart your terminal after installing.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="card border-0 shadow-sm mb-3">
+          <div class="card-body d-flex gap-3">
+            <div class="rounded-circle bg-dark text-white d-flex align-items-center justify-content-center fw-bold flex-shrink-0" style="width:40px;height:40px;">2</div>
+            <div class="w-100">
+              <div class="fw-semibold mb-1">Install Playwright browsers</div>
+              <p class="text-muted small mb-2">Run this once in your terminal to download the Chromium, Firefox, and WebKit browser binaries:</p>
+              <pre class="rounded p-2 mb-0" style="background:#1e1e1e;color:#d4d4d4;font-size:.82rem;"><code>npx playwright install</code></pre>
+              <div class="text-muted small mt-2"><i class="bi bi-info-circle me-1"></i>This downloads ~300MB of browser files. Only needs to be done once.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="card border-0 shadow-sm mb-3">
+          <div class="card-body d-flex gap-3">
+            <div class="rounded-circle bg-dark text-white d-flex align-items-center justify-content-center fw-bold flex-shrink-0" style="width:40px;height:40px;">3</div>
+            <div class="w-100">
+              <div class="fw-semibold mb-1">Open your Claude Desktop config file</div>
+              <p class="text-muted small mb-2">Find and open this file in any text editor (Notepad, VS Code, etc.):</p>
+              <div class="mb-2">
+                <span class="badge bg-secondary me-1"><i class="bi bi-apple me-1"></i>Mac</span>
+                <code style="font-size:.82rem;">~/Library/Application Support/Claude/claude_desktop_config.json</code>
+              </div>
+              <div>
+                <span class="badge bg-secondary me-1"><i class="bi bi-windows me-1"></i>Windows</span>
+                <code style="font-size:.82rem;">%APPDATA%\Claude\claude_desktop_config.json</code>
+              </div>
+              <div class="text-muted small mt-2"><i class="bi bi-info-circle me-1"></i>On Windows, paste the path directly into File Explorer's address bar and press Enter.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="card border-0 shadow-sm mb-3">
+          <div class="card-body d-flex gap-3">
+            <div class="rounded-circle bg-dark text-white d-flex align-items-center justify-content-center fw-bold flex-shrink-0" style="width:40px;height:40px;">4</div>
+            <div class="w-100">
+              <div class="fw-semibold mb-1">Add the Playwright MCP server config</div>
+              <p class="text-muted small mb-2">Replace the contents of the file with the following (or add the <code>"playwright"</code> block if you already have other servers):</p>
+              <pre class="rounded p-2 mb-0" style="background:#1e1e1e;color:#d4d4d4;font-size:.82rem;"><code>{
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": ["@playwright/mcp@latest"]
+    }
+  }
+}</code></pre>
+              <div class="text-muted small mt-2"><i class="bi bi-lightbulb me-1"></i>Want to see the browser window? Add <code>"--headed"</code> inside the args array.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="card border-0 shadow-sm mb-3">
+          <div class="card-body d-flex gap-3">
+            <div class="rounded-circle bg-dark text-white d-flex align-items-center justify-content-center fw-bold flex-shrink-0" style="width:40px;height:40px;">5</div>
+            <div class="w-100">
+              <div class="fw-semibold mb-1">Restart Claude Desktop</div>
+              <p class="text-muted small mb-0">Fully quit Claude Desktop and reopen it. Look for the <strong>tools icon</strong> (hammer <i class="bi bi-tools"></i>) in the chat input area — this confirms MCP is active and Playwright is connected.</p>
+            </div>
+          </div>
+        </div>
+
+
+          <!-- Step 5 -->
+        <div class="card border-0 shadow-sm mb-3">
+          <div class="card-body d-flex gap-3">
+            <div class="rounded-circle bg-dark text-white d-flex align-items-center justify-content-center fw-bold flex-shrink-0" style="width:40px;height:40px;">6</div>
+            <div class="w-100">
+              <div class="fw-semibold mb-1">Install MCP on VS code</div>
+              <p class="text-muted small mb-0"><a href="https://github.com/microsoft/playwright-mcp" target="_blank">https://github.com/microsoft/playwright-mcp</a></p>
+            </div>
+          </div>
+        </div>
+     
+
+        <!-- Step 6 -->
+        <div class="card border-0 shadow-sm mb-3">
+          <div class="card-body d-flex gap-3">
+            <div class="rounded-circle bg-success text-white d-flex align-items-center justify-content-center fw-bold flex-shrink-0" style="width:40px;height:40px;"><i class="bi bi-check-lg"></i></div>
+            <div class="w-100">
+              <div class="fw-semibold mb-2">Test it — try these prompts in Claude</div>
+              <div class="d-flex flex-column gap-2">
+                <div class="bg-light border rounded px-3 py-2 small"><i class="bi bi-chat-quote me-2 text-muted"></i>"Go to google.com and take a screenshot"</div>
+                <div class="bg-light border rounded px-3 py-2 small"><i class="bi bi-chat-quote me-2 text-muted"></i>"Open wikipedia.org and summarize the homepage"</div>
+                <div class="bg-light border rounded px-3 py-2 small"><i class="bi bi-chat-quote me-2 text-muted"></i>"Search for 'Python tutorial' on Google and list the top 5 results"</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Notes -->
+        <div class="alert alert-warning border-0 shadow-sm d-flex gap-2 mt-2">
+          <i class="bi bi-exclamation-triangle-fill mt-1 flex-shrink-0"></i>
+          <div class="small">
+            <strong>Requirements:</strong> Node.js 18 or higher &nbsp;&middot;&nbsp;
+            The package <code>@playwright/mcp</code> is maintained by <strong>Microsoft</strong> &nbsp;&middot;&nbsp;
+            Runs headless (no visible browser window) by default
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW TO SETUP -->
+  <div class="container py-5">
+    <h2 class="fw-bold text-center mb-2">How to set up MCP</h2>
+    <p class="text-muted text-center mb-5">Works with Claude Desktop on Mac and Windows.</p>
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item bg-transparent d-flex gap-3 align-items-start py-3">
+            <span class="badge bg-dark rounded-pill mt-1 fs-6">1</span>
+            <div>
+              <div class="fw-semibold">Install Claude Desktop</div>
+              <div class="text-muted small">Download from <a href="https://claude.ai/download" target="_blank">claude.ai/download</a> — available for Mac and Windows.</div>
+            </div>
+          </li>
+          <li class="list-group-item bg-transparent d-flex gap-3 align-items-start py-3">
+            <span class="badge bg-dark rounded-pill mt-1 fs-6">2</span>
+            <div>
+              <div class="fw-semibold">Open the config file</div>
+              <div class="text-muted small">
+                Mac: <code>~/Library/Application Support/Claude/claude_desktop_config.json</code><br>
+                Windows: <code>%APPDATA%\Claude\claude_desktop_config.json</code>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item bg-transparent d-flex gap-3 align-items-start py-3">
+            <span class="badge bg-dark rounded-pill mt-1 fs-6">3</span>
+            <div>
+              <div class="fw-semibold">Add an MCP server</div>
+              <div class="text-muted small">Copy any server config from the cards above and paste it inside <code>"mcpServers": {}</code>.</div>
+            </div>
+          </li>
+          <li class="list-group-item bg-transparent d-flex gap-3 align-items-start py-3">
+            <span class="badge bg-dark rounded-pill mt-1 fs-6">4</span>
+            <div>
+              <div class="fw-semibold">Restart Claude Desktop</div>
+              <div class="text-muted small">Fully quit and reopen Claude. You'll see a <i class="bi bi-plugin"></i> tools icon in the chat — your MCP server is live.</div>
+            </div>
+          </li>
+          <li class="list-group-item bg-transparent d-flex gap-3 align-items-start py-3">
+            <span class="badge bg-dark rounded-pill mt-1 fs-6">5</span>
+            <div>
+              <div class="fw-semibold">Make sure Node.js is installed</div>
+              <div class="text-muted small">Most MCP servers run via <code>npx</code>. Install Node.js from <a href="https://nodejs.org" target="_blank">nodejs.org</a> if you haven't already.</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- LINKS -->
+  <div class="bg-white py-5">
+    <div class="container">
+      <h2 class="fw-bold text-center mb-2">Resources</h2>
+      <p class="text-muted text-center mb-4">Everything you need to go deeper with MCP.</p>
+      <div class="row justify-content-center g-3">
+        <div class="col-md-5">
+          <a href="https://modelcontextprotocol.io" target="_blank" class="list-group-item list-group-item-action border rounded p-3 d-flex align-items-center gap-3">
+            <i class="bi bi-book-fill text-dark fs-4"></i>
+            <div>
+              <div class="fw-semibold small">MCP Official Docs</div>
+              <div class="text-muted" style="font-size:.75rem;">modelcontextprotocol.io — spec, guides, and tutorials</div>
+            </div>
+            <i class="bi bi-box-arrow-up-right ms-auto text-muted small"></i>
+          </a>
+        </div>
+        <div class="col-md-5">
+          <a href="https://github.com/modelcontextprotocol/servers" target="_blank" class="list-group-item list-group-item-action border rounded p-3 d-flex align-items-center gap-3">
+            <i class="bi bi-github text-dark fs-4"></i>
+            <div>
+              <div class="fw-semibold small">Official MCP Servers (GitHub)</div>
+              <div class="text-muted" style="font-size:.75rem;">All official server packages and source code</div>
+            </div>
+            <i class="bi bi-box-arrow-up-right ms-auto text-muted small"></i>
+          </a>
+        </div>
+        <div class="col-md-5">
+          <a href="https://claude.ai/download" target="_blank" class="list-group-item list-group-item-action border rounded p-3 d-flex align-items-center gap-3">
+            <i class="bi bi-download text-primary fs-4"></i>
+            <div>
+              <div class="fw-semibold small">Download Claude Desktop</div>
+              <div class="text-muted" style="font-size:.75rem;">Mac &amp; Windows — required to run MCP servers</div>
+            </div>
+            <i class="bi bi-box-arrow-up-right ms-auto text-muted small"></i>
+          </a>
+        </div>
+        <div class="col-md-5">
+          <a href="https://nodejs.org" target="_blank" class="list-group-item list-group-item-action border rounded p-3 d-flex align-items-center gap-3">
+            <i class="bi bi-terminal-fill text-success fs-4"></i>
+            <div>
+              <div class="fw-semibold small">Download Node.js</div>
+              <div class="text-muted" style="font-size:.75rem;">Required to run npx-based MCP servers</div>
+            </div>
+            <i class="bi bi-box-arrow-up-right ms-auto text-muted small"></i>
+          </a>
+        </div>
+        <div class="col-md-5">
+          <a href="https://github.com/punkpeye/awesome-mcp-servers" target="_blank" class="list-group-item list-group-item-action border rounded p-3 d-flex align-items-center gap-3">
+            <i class="bi bi-stars text-warning fs-4"></i>
+            <div>
+              <div class="fw-semibold small">Awesome MCP Servers</div>
+              <div class="text-muted" style="font-size:.75rem;">Community list of 100+ MCP servers</div>
+            </div>
+            <i class="bi bi-box-arrow-up-right ms-auto text-muted small"></i>
+          </a>
+        </div>
+        <div class="col-md-5">
+          <a href="https://modelcontextprotocol.io/quickstart" target="_blank" class="list-group-item list-group-item-action border rounded p-3 d-flex align-items-center gap-3">
+            <i class="bi bi-lightning-charge-fill text-danger fs-4"></i>
+            <div>
+              <div class="fw-semibold small">Quickstart Guide</div>
+              <div class="text-muted" style="font-size:.75rem;">Get your first MCP server running in 5 minutes</div>
+            </div>
+            <i class="bi bi-box-arrow-up-right ms-auto text-muted small"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-dark text-white text-center py-3 small">
+    IS247 &mdash; Spring 2025 &nbsp;|&nbsp; Model Context Protocol Reference
+  </footer>
+
+  <!-- FLOATING CHAT BUTTON -->
+  <button class="btn btn-dark rounded-circle shadow position-fixed bottom-0 end-0 m-4 d-flex align-items-center justify-content-center"
+    style="width:60px;height:60px;font-size:1.5rem;z-index:1040;" data-bs-toggle="offcanvas" data-bs-target="#chatPanel" title="Ask about MCP">
+    <i class="bi bi-chat-dots-fill"></i>
+  </button>
+
+  <!-- CHAT SIDE PANEL -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="chatPanel" style="width:420px;">
+    <div class="offcanvas-header bg-dark text-white py-2 px-3">
+      <div class="d-flex align-items-center gap-2">
+        <i class="bi bi-plugin fs-5"></i>
+        <div>
+          <div class="fw-bold lh-1">MCP Assistant</div>
+          <div class="opacity-75" style="font-size:0.7rem;">llama-3.1-8b-instant &middot; MCP questions only</div>
+        </div>
+      </div>
+      <div class="d-flex align-items-center gap-3 ms-auto">
+        <button class="btn btn-sm btn-outline-light py-0 px-2" onclick="clearChat()">
+          <i class="bi bi-trash"></i> Clear
+        </button>
+        <button class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+      </div>
+    </div>
+
+    <!-- API Key -->
+    <div class="p-2 border-bottom bg-light">
+      <div class="input-group input-group-sm">
+        <span class="input-group-text bg-white"><i class="bi bi-key"></i></span>
+        <input id="apiKey" type="password" class="form-control" placeholder="Paste your Groq API key (gsk_...)">
+        <button class="btn btn-outline-secondary" onclick="toggleKey()">Show</button>
+      </div>
+      <div class="form-text px-1">No key? <a href="https://console.groq.com" target="_blank">Get one free at console.groq.com</a></div>
+    </div>
+
+    <!-- Messages -->
+    <div id="messages" class="p-3 d-flex flex-column gap-3 bg-white flex-grow-1 overflow-y-auto">
+      <div class="text-center text-muted small my-auto">Ask me anything about MCP — setup, tools, config, or building your own server.</div>
+    </div>
+
+    <!-- Input -->
+    <div class="p-3 border-top bg-light">
+      <div class="input-group">
+        <input id="chatInput" type="text" class="form-control" placeholder="Ask an MCP question…">
+        <button id="sendBtn" class="btn btn-dark" onclick="send()">
+          <i class="bi bi-send-fill"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const SYSTEM_PROMPT = {
+      role: 'system',
+      content: `You are an MCP (Model Context Protocol) expert assistant for an IS247 course.
+You ONLY answer questions related to:
+- Model Context Protocol (MCP) — what it is, how it works, the spec
+- MCP server setup, configuration, and troubleshooting
+- Specific MCP servers (filesystem, GitHub, SQLite, fetch, puppeteer, memory, etc.)
+- Building custom MCP servers
+- Claude Desktop configuration (claude_desktop_config.json)
+- Connecting MCP to AI workflows
+
+If a student asks about ANYTHING outside MCP and AI tooling, respond with:
+"I can only help with MCP-related questions. Please ask something about Model Context Protocol, MCP server setup, or Claude tool integrations."
+
+Always include config examples or code snippets where helpful. Be concise and practical.`
+    };
+
+    const history = [SYSTEM_PROMPT];
+
+    document.getElementById('chatPanel').addEventListener('shown.bs.offcanvas', () => {
+      document.getElementById('chatInput').focus();
+    });
+
+    function toggleKey() {
+      const el = document.getElementById('apiKey');
+      el.type = el.type === 'password' ? 'text' : 'password';
+      el.nextElementSibling.textContent = el.type === 'password' ? 'Show' : 'Hide';
+    }
+
+    function clearChat() {
+      history.length = 1;
+      const box = document.getElementById('messages');
+      box.innerHTML = '<div class="text-center text-muted small my-auto">Chat cleared. Ask a new MCP question!</div>';
+    }
+
+    function bubble(sender, text, isUser) {
+      const box = document.getElementById('messages');
+      const hint = box.querySelector('.my-auto');
+      if (hint) hint.remove();
+
+      const wrap = document.createElement('div');
+      wrap.className = 'd-flex flex-column ' + (isUser ? 'align-items-end' : 'align-items-start');
+      wrap.innerHTML =
+        '<small class="text-muted px-1">' + sender + '</small>' +
+        '<div class="px-3 py-2 rounded-3 ' + (isUser ? 'bg-dark text-white' : 'bg-light border') +
+        '" style="max-width:85%;white-space:pre-wrap;font-size:.88rem">' + text + '</div>';
+
+      box.appendChild(wrap);
+      box.scrollTop = box.scrollHeight;
+      return wrap.querySelector('div');
+    }
+
+    async function send() {
+      const input  = document.getElementById('chatInput');
+      const btn    = document.getElementById('sendBtn');
+      const apiKey = document.getElementById('apiKey').value.trim();
+      const text   = input.value.trim();
+
+      if (!text) return;
+      if (!apiKey) { alert('Please paste your Groq API key above.'); return; }
+
+      bubble('You', text, true);
+      input.value = '';
+      btn.disabled = input.disabled = true;
+      history.push({ role: 'user', content: text });
+
+      const thinking = bubble('MCP Assistant', 'Thinking…', false);
+      thinking.classList.add('fst-italic', 'text-muted');
+
+      try {
+        const res  = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + apiKey },
+          body: JSON.stringify({ model: 'llama-3.1-8b-instant', messages: history })
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error?.message || res.statusText);
+        const reply = data.choices[0].message.content;
+        history.push({ role: 'assistant', content: reply });
+        thinking.textContent = reply;
+        thinking.classList.remove('fst-italic', 'text-muted');
+      } catch (e) {
+        thinking.textContent = 'Error: ' + e.message;
+        thinking.classList.replace('text-muted', 'text-danger');
+        history.pop();
+      }
+
+      btn.disabled = input.disabled = false;
+      input.focus();
+      document.getElementById('messages').scrollTop = 99999;
+    }
+
+    document.getElementById('chatInput').addEventListener('keydown', e => {
+      if (e.key === 'Enter') send();
+    });
+  </script>
+
+</body>
+</html>

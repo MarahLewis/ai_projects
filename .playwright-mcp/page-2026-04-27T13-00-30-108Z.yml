@@ -1,0 +1,374 @@
+- generic [active] [ref=e1]:
+  - navigation "Skip links":
+    - link "Skip to Content" [ref=e2] [cursor=pointer]:
+      - /url: "#main"
+    - link "Skip to navigation" [ref=e3] [cursor=pointer]:
+      - /url: "#primary-site-navigation"
+  - generic [ref=e4]:
+    - text: ▶︎ ▶︎ ▶︎ ▶︎ ▶︎ ▶︎
+    - banner [ref=e5]:
+      - generic [ref=e6]:
+        - link "UMBC Logo" [ref=e7] [cursor=pointer]:
+          - /url: /
+          - img "UMBC Logo" [ref=e9]
+        - button "Open Menu" [ref=e11] [cursor=pointer]:
+          - img [ref=e12]
+      - text: ▶︎ ▶︎ ▶︎ ▶︎ ▶︎ ▶︎
+    - main [ref=e16]:
+      - article [ref=e17]:
+        - generic [ref=e18]:
+          - generic [ref=e20]:
+            - img "Hero Background" [ref=e23]
+            - generic [ref=e24]:
+              - heading "DIFFERENT" [level=1] [ref=e25]
+              - heading "MAKES A DIFFERENCE" [level=2] [ref=e26]
+            - generic [ref=e27]:
+              - heading "May 1 is College Signing Day — Celebrate with Retriever Pride" [level=3] [ref=e28]
+              - generic [ref=e29]:
+                - paragraph [ref=e30]: "Download your UMBC wallpapers and join the celebration with #UMBCretriever"
+                - link "Join the Celebration" [ref=e31] [cursor=pointer]:
+                  - /url: https://umbc.edu/learn-more/umbc-wallpaper
+            - generic:
+              - img
+          - generic [ref=e33]:
+            - generic [ref=e34]:
+              - generic [ref=e35]:
+                - heading "ACADEMICS" [level=3] [ref=e36]:
+                  - strong [ref=e37]:
+                    - link "ACADEMICS" [ref=e38] [cursor=pointer]:
+                      - /url: https://umbc.edu/academics
+                - paragraph [ref=e39]:
+                  - link "Find the right program for you, and get the help you need to explore your options." [ref=e40] [cursor=pointer]:
+                    - /url: https://umbc.edu/academics
+              - generic [ref=e41]:
+                - heading "ABOUT UMBC" [level=3] [ref=e42]:
+                  - strong [ref=e43]:
+                    - link "ABOUT UMBC" [ref=e44] [cursor=pointer]:
+                      - /url: https://umbc.edu/about
+                - paragraph [ref=e45]:
+                  - link "Great things happen when you’re part of a community that believes in you." [ref=e46] [cursor=pointer]:
+                    - /url: https://umbc.edu/about/
+              - generic [ref=e47]:
+                - heading "APPLY" [level=3] [ref=e48]:
+                  - strong [ref=e49]:
+                    - link "APPLY" [ref=e50] [cursor=pointer]:
+                      - /url: https://umbc.edu/apply/
+                - paragraph [ref=e51]:
+                  - link "Ready to make it official? Join our global community of inquiring minds." [ref=e52] [cursor=pointer]:
+                    - /url: https://umbc.edu/apply/
+            - generic [ref=e53]:
+              - generic [ref=e54]:
+                - heading "14,000" [level=2] [ref=e55]:
+                  - strong [ref=e56]:
+                    - link "14,000" [ref=e57] [cursor=pointer]:
+                      - /url: https://umbc.edu/about
+                - paragraph [ref=e58]: STUDENTS
+              - generic [ref=e59]:
+                - heading "#19" [level=2] [ref=e60]:
+                  - strong [ref=e61]:
+                    - link "#19" [ref=e62] [cursor=pointer]:
+                      - /url: https://umbc.edu/stories/us-news-rankings-2026/
+                - paragraph [ref=e63]: MOST INNOVATIVE SCHOOLS
+              - generic [ref=e64]:
+                - heading "Top 100" [level=2] [ref=e65]:
+                  - strong [ref=e66]:
+                    - link "Top 100" [ref=e67] [cursor=pointer]:
+                      - /url: https://umbc.edu/quick-posts/herd-rankings-2024/
+                - paragraph [ref=e68]: PUBLIC INSTITUTION IN FEDERAL RESEARCH SUPPORT
+              - generic [ref=e69]:
+                - heading "270+" [level=2] [ref=e70]:
+                  - strong [ref=e71]:
+                    - link "270+" [ref=e72] [cursor=pointer]:
+                      - /url: https://campuslife.umbc.edu/
+                - paragraph [ref=e73]: STUDENT GROUPS
+            - paragraph [ref=e74]:
+              - link "View More UMBC Facts & Figures →" [ref=e75] [cursor=pointer]:
+                - /url: https://umbc.edu/about/facts-and-figures/
+          - generic [ref=e76]:
+            - img "decorative chevron texture" [ref=e77]
+            - generic [ref=e80]:
+              - figure [ref=e82]:
+                - link "UMBC arial view blurred with the words \"The College Tour\" and a YouTube play button overlayed." [ref=e83] [cursor=pointer]:
+                  - /url: https://umbc.edu/the-college-tour
+                  - img "UMBC arial view blurred with the words \"The College Tour\" and a YouTube play button overlayed." [ref=e84]
+              - generic [ref=e85]:
+                - heading "See UMBC Through Our Students’ Eyes" [level=2] [ref=e86]
+                - paragraph [ref=e87]:
+                  - text: Get a virtual tour of UMBC like no other — through the personal experiences of our own students on UMBC’s episode of
+                  - emphasis [ref=e88]: The College Tour
+                  - text: .
+                - link "View the Episode" [ref=e91] [cursor=pointer]:
+                  - /url: https://umbc.edu/the-college-tour
+          - generic [ref=e92]:
+            - img "umbc's campus featuring brick buildings and striped walkways" [ref=e93]
+            - generic [ref=e96]:
+              - generic [ref=e97]:
+                - heading "U.S. News highlights UMBC’s national leadership in teaching, innovation, and diversity." [level=2] [ref=e98]:
+                  - strong [ref=e99]: U.S. News highlights UMBC’s national leadership in teaching, innovation, and diversity.
+                - link "More UMBC Rankings Information" [ref=e102] [cursor=pointer]:
+                  - /url: https://umbc.edu/stories/us-news-rankings-2026/
+              - generic [ref=e103]:
+                - generic [ref=e104]:
+                  - figure [ref=e106]:
+                    - img "US News Best Colleges National Public Universities 2026" [ref=e107]
+                  - figure [ref=e109]:
+                    - img "US News Best Colleges Best Value Schools 2026" [ref=e110]
+                - generic [ref=e111]:
+                  - figure [ref=e113]:
+                    - img "US News Most Innovative 2026" [ref=e114]
+                  - figure [ref=e116]:
+                    - img "US News Undergraduate Teaching 2026" [ref=e117]
+          - generic [ref=e119]:
+            - generic [ref=e123]:
+              - heading "Life at UMBC" [level=2] [ref=e124]
+              - paragraph [ref=e125]: "Our UMBC community is committed to helping you achieve excellence as a student and beyond. Whether breaking boundaries in the classroom and the lab, or stretching your limits on stage or the playing field, Retrievers are in it #UMBCTogether."
+            - generic [ref=e126]:
+              - generic [ref=e128]:
+                - generic [ref=e130]:
+                  - generic:
+                    - paragraph
+                - generic [ref=e132]:
+                  - heading "Arts & Culture" [level=3] [ref=e133]
+                  - paragraph [ref=e134]: Think, create, and engage with us.
+                  - paragraph [ref=e135]:
+                    - link "View Arts Calendar" [ref=e136] [cursor=pointer]:
+                      - /url: https://umbc.edu/life-on-campus/arts-and-culture
+              - generic [ref=e138]:
+                - generic [ref=e140]:
+                  - img "students cheering for retrievers athletics and true grit mascot" [ref=e141]
+                  - generic:
+                    - paragraph
+                - generic [ref=e143]:
+                  - heading "Athletics" [level=3] [ref=e144]
+                  - paragraph [ref=e145]: Reach for the win together.
+                  - paragraph [ref=e146]:
+                    - link "Join Retriever Nation" [ref=e147] [cursor=pointer]:
+                      - /url: https://www.umbcretrievers.com/
+            - generic [ref=e148]:
+              - generic [ref=e150]:
+                - generic [ref=e152]:
+                  - generic:
+                    - paragraph
+                - generic [ref=e154]:
+                  - heading "Careers" [level=3] [ref=e155]
+                  - paragraph [ref=e156]: Discover your path, claim your future.
+                  - paragraph [ref=e157]:
+                    - link "Career Center" [ref=e158] [cursor=pointer]:
+                      - /url: https://careers.umbc.edu/
+              - generic [ref=e160]:
+                - generic [ref=e162]:
+                  - img "international flags hanging above students eating in the commons" [ref=e163]
+                  - generic:
+                    - paragraph
+                - generic [ref=e165]:
+                  - heading "International" [level=3] [ref=e166]
+                  - paragraph [ref=e167]: Extend beyond the expected.
+                  - paragraph [ref=e168]:
+                    - link "UMBC Global" [ref=e169] [cursor=pointer]:
+                      - /url: https://umbc.edu/global/
+            - generic [ref=e170]:
+              - generic [ref=e172]:
+                - generic [ref=e174]:
+                  - img "students exploring chemical structures" [ref=e175]
+                  - generic:
+                    - paragraph
+                - generic [ref=e177]:
+                  - heading "Research" [level=3] [ref=e178]
+                  - paragraph [ref=e179]: Explore each and every angle.
+                  - paragraph [ref=e180]:
+                    - link "Discovery In Action" [ref=e181] [cursor=pointer]:
+                      - /url: https://research.umbc.edu/
+              - generic [ref=e183]:
+                - generic [ref=e185]:
+                  - img "students gardening" [ref=e186]
+                  - generic:
+                    - paragraph
+                - generic [ref=e188]:
+                  - heading "Campus Life" [level=3] [ref=e189]
+                  - paragraph [ref=e190]: Be a part of our Retriever community.
+                  - paragraph [ref=e191]:
+                    - link "View Calendar" [ref=e192] [cursor=pointer]:
+                      - /url: https://campuslife.umbc.edu/
+          - generic [ref=e194]:
+            - generic [ref=e195]:
+              - heading "Featured Stories" [level=2] [ref=e197]:
+                - link "Featured Stories" [ref=e198] [cursor=pointer]:
+                  - /url: https://umbc.edu/news-home/
+                  - strong [ref=e199]: Featured Stories
+              - link "More UMBC News →" [ref=e203] [cursor=pointer]:
+                - /url: https://umbc.edu/news-home
+            - list [ref=e205]:
+              - listitem [ref=e206]:
+                - generic [ref=e207]:
+                  - figure [ref=e209]:
+                    - link "UMBC returns to NCAA Tournament for the first time since 2018" [ref=e210] [cursor=pointer]:
+                      - /url: https://umbc.edu/stories/umbc-returns-to-ncaa-for-first-time-since-2018/
+                      - img "UMBC returns to NCAA Tournament for the first time since 2018" [ref=e211]
+                  - generic [ref=e212]:
+                    - generic [ref=e213]:
+                      - link "News Stories" [ref=e214] [cursor=pointer]:
+                        - /url: https://umbc.edu/news/
+                        - text: News
+                      - link "Feature Stories" [ref=e215] [cursor=pointer]:
+                        - /url: https://umbc.edu/news/feature/
+                        - text: Feature
+                    - heading "UMBC returns to NCAA Tournament for the first time since 2018" [level=3] [ref=e216]:
+                      - link "UMBC returns to NCAA Tournament for the first time since 2018" [ref=e217] [cursor=pointer]:
+                        - /url: https://umbc.edu/stories/umbc-returns-to-ncaa-for-first-time-since-2018/
+                    - generic [ref=e218]:
+                      - paragraph [ref=e219]: Cinderella better find her slippers because UMBC is going dancing again! With a 74-59 win over no. 2 University of Vermont on Saturday, UMBC men’s basketball will return to NCAA Tournament play for the first time since 2018. They also clinched another America East title before a packed home court at Chesapeake Employers Insurance Arena.…
+                      - paragraph [ref=e220]:
+                        - link "Continue Reading this Featured Story" [ref=e221] [cursor=pointer]:
+                          - /url: https://umbc.edu/stories/umbc-returns-to-ncaa-for-first-time-since-2018/
+            - list [ref=e223]:
+              - listitem [ref=e224]:
+                - figure [ref=e225]:
+                  - link "From modern languages to modern dance—Xavier Mack ’16 performs around the world" [ref=e226] [cursor=pointer]:
+                    - /url: https://umbc.edu/stories/xavier-mack-journey-from-linguistics-to-dancing/
+                    - img "From modern languages to modern dance—Xavier Mack ’16 performs around the world" [ref=e227]
+                - heading "From modern languages to modern dance—Xavier Mack ’16 performs around the world" [level=2] [ref=e228]:
+                  - link "From modern languages to modern dance—Xavier Mack ’16 performs around the world" [ref=e229] [cursor=pointer]:
+                    - /url: https://umbc.edu/stories/xavier-mack-journey-from-linguistics-to-dancing/
+                - time [ref=e231]: Mar 10, 2026
+              - listitem [ref=e232]:
+                - figure [ref=e233]:
+                  - 'link "Sisters in science: How one UMBC lab kindled a family tradition of discovery" [ref=e234] [cursor=pointer]':
+                    - /url: https://umbc.edu/stories/sisters-in-science/
+                    - 'img "Sisters in science: How one UMBC lab kindled a family tradition of discovery" [ref=e235]'
+                - 'heading "Sisters in science: How one UMBC lab kindled a family tradition of discovery" [level=2] [ref=e236]':
+                  - 'link "Sisters in science: How one UMBC lab kindled a family tradition of discovery" [ref=e237] [cursor=pointer]':
+                    - /url: https://umbc.edu/stories/sisters-in-science/
+                - time [ref=e239]: Feb 5, 2026
+              - listitem [ref=e240]:
+                - figure [ref=e241]:
+                  - link "U.S. News affirms UMBC’s status as a leading public university with strong student support, especially for veterans" [ref=e242] [cursor=pointer]:
+                    - /url: https://umbc.edu/stories/us-news-rankings-2026/
+                    - img "U.S. News affirms UMBC’s status as a leading public university with strong student support, especially for veterans" [ref=e243]
+                - heading "U.S. News affirms UMBC’s status as a leading public university with strong student support, especially for veterans" [level=2] [ref=e244]:
+                  - link "U.S. News affirms UMBC’s status as a leading public university with strong student support, especially for veterans" [ref=e245] [cursor=pointer]:
+                    - /url: https://umbc.edu/stories/us-news-rankings-2026/
+                - time [ref=e247]: Sep 23, 2025
+    - generic [ref=e248]:
+      - contentinfo [ref=e250]:
+        - generic [ref=e251]:
+          - link "UMBC" [ref=e252] [cursor=pointer]:
+            - /url: https://umbc.edu
+            - img "UMBC" [ref=e253]
+          - paragraph [ref=e261]:
+            - text: University of Maryland, Baltimore County
+            - text: 1000 Hilltop Circle, Baltimore, MD 21250
+          - paragraph [ref=e262]:
+            - link "Directions & Parking Information" [ref=e263] [cursor=pointer]:
+              - /url: https://umbc.edu/about/visit/directions/
+          - list [ref=e264]:
+            - listitem [ref=e265]:
+              - link "UMBC Facebook" [ref=e266] [cursor=pointer]:
+                - /url: https://www.facebook.com/umbcpage
+                - img "Facebook" [ref=e267]
+            - listitem [ref=e269]:
+              - link "UMBC on X" [ref=e270] [cursor=pointer]:
+                - /url: https://twitter.com/umbc
+                - img "X" [ref=e271]
+            - listitem [ref=e274]:
+              - link "UMBC Instagram" [ref=e275] [cursor=pointer]:
+                - /url: https://www.instagram.com/umbclife/
+                - img "Instagram" [ref=e276]
+            - listitem [ref=e281]:
+              - link "UMBC Youtube" [ref=e282] [cursor=pointer]:
+                - /url: https://www.youtube.com/user/UMBCtube/
+                - img "Youtube" [ref=e283]
+            - listitem [ref=e287]:
+              - link "UMBC Linkedin" [ref=e288] [cursor=pointer]:
+                - /url: https://www.linkedin.com/school/university-of-maryland-baltimore-county/
+                - img "LinkedIn" [ref=e289]
+            - listitem [ref=e291]:
+              - link "myUMBC" [ref=e292] [cursor=pointer]:
+                - /url: https://my.umbc.edu
+                - img "myUMBC" [ref=e293]
+        - generic [ref=e300]:
+          - heading "Resources" [level=2] [ref=e301]
+          - list [ref=e302]:
+            - listitem [ref=e303]:
+              - link "UMBC Alumni" [ref=e304] [cursor=pointer]:
+                - /url: https://www.alumni.umbc.edu/
+            - listitem [ref=e305]:
+              - link "Career Center" [ref=e306] [cursor=pointer]:
+                - /url: https://careers.umbc.edu/
+            - listitem [ref=e307]:
+              - link "Events" [ref=e308] [cursor=pointer]:
+                - /url: https://my.umbc.edu/events
+            - listitem [ref=e309]:
+              - link "Mobile Apps" [ref=e310] [cursor=pointer]:
+                - /url: https://umbc.edu/mobile
+            - listitem [ref=e311]:
+              - link "Stories" [ref=e312] [cursor=pointer]:
+                - /url: https://umbc.edu/stories
+            - listitem [ref=e313]:
+              - link "Visit Campus" [ref=e314] [cursor=pointer]:
+                - /url: https://umbc.edu/about/visit
+            - listitem [ref=e315]:
+              - link "Work at UMBC" [ref=e316] [cursor=pointer]:
+                - /url: https://jobs.umbc.edu/
+        - generic [ref=e317]:
+          - heading "Important Contacts" [level=2] [ref=e318]
+          - list [ref=e319]:
+            - listitem [ref=e320]:
+              - link "Online Directory" [ref=e321] [cursor=pointer]:
+                - /url: https://www2.umbc.edu/search/directory/
+            - listitem [ref=e322]:
+              - link "Contact UMBC" [ref=e323] [cursor=pointer]:
+                - /url: https://umbc.edu/about/contact-us/
+            - listitem [ref=e324]:
+              - link "Get Help" [ref=e325] [cursor=pointer]:
+                - /url: https://rtforms.umbc.edu/rt_myumbcHelpPage/
+          - heading "Emergency Info" [level=2] [ref=e326]
+          - list [ref=e327]:
+            - listitem [ref=e328]:
+              - link "UMBC Police" [ref=e329] [cursor=pointer]:
+                - /url: https://police.umbc.edu/
+              - text: ":"
+              - link "410-455-5555" [ref=e330] [cursor=pointer]:
+                - /url: tel:410-455-5555
+            - listitem [ref=e331]:
+              - link "Sign Up for Text Alerts" [ref=e332] [cursor=pointer]:
+                - /url: https://umbc.omnilert.net/subscriber.php
+        - generic [ref=e333]:
+          - generic [ref=e334]:
+            - list [ref=e335]:
+              - listitem [ref=e336]:
+                - button "Request Info" [ref=e337] [cursor=pointer]
+            - list [ref=e338]:
+              - listitem [ref=e339]:
+                - link "Apply" [ref=e340] [cursor=pointer]:
+                  - /url: https://umbc.edu/apply/
+          - generic [ref=e341]:
+            - heading "Top Stories of the Week" [level=2] [ref=e342]
+            - list [ref=e343]:
+              - listitem [ref=e344]:
+                - button "Sign Up for UMBC News" [ref=e345] [cursor=pointer]
+      - generic [ref=e347]:
+        - generic [ref=e348]:
+          - text: "© UMBC: A"
+          - link "University System of Maryland" [ref=e349] [cursor=pointer]:
+            - /url: https://www.usmd.edu
+            - text: "[opens in new window] University System of Maryland"
+          - text: Member Institution
+        - list [ref=e351]:
+          - listitem [ref=e352]:
+            - link "Accreditation" [ref=e353] [cursor=pointer]:
+              - /url: https://umbc.edu/about/accreditation/
+          - listitem [ref=e354]:
+            - link "[opens in new window] Equal Opportunity" [ref=e355] [cursor=pointer]:
+              - /url: https://oei.umbc.edu/discrimination-policy/
+          - listitem [ref=e356]:
+            - link "[opens in new window] Privacy Policy" [ref=e357] [cursor=pointer]:
+              - /url: https://privacy.umbc.edu/
+          - listitem [ref=e358]:
+            - link "[opens in new window] Title IX" [ref=e359] [cursor=pointer]:
+              - /url: https://oei.umbc.edu/gender-discrimination-sexual-misconduct/
+          - listitem [ref=e360]:
+            - link "[opens in new window] Web Accessibility" [ref=e361] [cursor=pointer]:
+              - /url: https://accessibility.umbc.edu/digital-accessibility/
+          - listitem [ref=e362]:
+            - link "[opens in new window] Consumer Information" [ref=e363] [cursor=pointer]:
+              - /url: https://enrollment.umbc.edu/consumer_info/

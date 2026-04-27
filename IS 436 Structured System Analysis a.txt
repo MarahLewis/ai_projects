@@ -1,0 +1,177 @@
+IS 436 Structured System Analysis and Design Mo 7:10PM - 9:40 Janet & Walter Sondheim 105
+Course Description
+This course involves advanced study and applications of structured analysis and design methods through the design phase of the system development life cycle (SDLC). The course will also discuss implementation and testing of systems.
+
+Course Pre-req: IS 410, Introduction to Database Design
+The course has the following learning outcomes:
+To define and analyze the concept of a system and what it means to develop and implement and information system in an organization
+To identify and explain the major phases of the systems development life cycle
+To evaluate techniques for identifying the information and processing needs of an organization
+To produce structured systems specifications for a simple system
+To use basic modeling tools for representing the analysis and the design of an information system
+To design a system from the user’s specifications including the user interface, HW/SW requirements and system module structure.
+A drawing tool will be used for DFDs and ERDs. Visio is available in the IS labs. Other tools that you have access to may be used as well. Project management tools such as MS Project may also be used.
+Instructional Methods
+Discussion,Lectures,Demonstrations and Videos
+
+Attendance and Participation
+Regular and punctual attendance is expected of all students. In the case of absence due to emergency (illness, death in the family, accident), religious holiday, or participation in official College functions, it is the student's responsibility to confer with the instructor about the absence and missed course work.
+
+Class Preparation
+All of the reading and homework assignments should be completed before the class in which the material is to be discussed.
+
+Course Requirements
+Regular punctual attendance, homeworks, tests, quiz, group project.
+
+Quiz
+A total of 10 quizzes will be given. You will have 48 hours to complete each quiz from the time it is opened. The quiz will become active at around 10:00 PM and will close at 10:00 PM two days later.
+
+ Groups and project requirements
+ Textbook
+
+
+Alan Dennis; Barbara Wixom; Roberta M. Roth
+
+source http://covers.vitalbook.com
+ Tools
+Github Project
+Github
+Github Workflow
+Jira
+Slack
+excalidraw
+ Contact
+Instructor: Shiva Sharma
+Email: ss12@umbc.edu
+MO 7:10PM - 9:40PM
+Office Hours: By appointment online or Janet & Walter Sondheim 105
+User page:UMBC page
+Web site:shivaprogramming.com
+Introduction Introduction
+ Office Hours
+MO 7:10PM - 9:40PM
+Office Hours: By appointment online / Janet & Walter Sondheim 105
+ Classwork
+Project Foosball
+Lab
+Group Project Info
+ Github Repo
+IS436 Repo
+Project Plan
+Student Sample project
+Grading
+Lab (2 * 5=10%)	Quiz(10*3=30%)	Group Project (5*4=20%) Final Presentation (1*10=10)	Exam I	Exam II	Exam III	Total
+10%
+30%
+30%
+10%
+10%
+10%
+100%
+ Letter Grade
+A=90-100%
+B=80-89.9%
+C=70-79.9%
+ Schedule
+Week	Dates	Topic	Lab	Homework/Group project	Quiz
+1		Introduction to Course and Syllabus			
+PLANNING PHASE
+1		Chapter 1: The Systems Analyst And Information Systems Development			✓
+2		Chapter 2 : Project Selection And Management			✓
+ANALYSIS PHASE
+3		Chapter 3: Requirements Determination			✓
+4		Chapter 4: Use Case Analysis		 	✓
+Exam 1 (3/4/2026 7:00 am - 3/8/2026 11:59 am)			
+5		Chapter 5: Process Modeling			✓
+6		Chapter 6: Data Modeling		 	✓
+DESIGN PHASE
+7		Chapter 7: Moving Into Design			✓
+8		Chapter 8: Architecture Design			✓
+Exam 2 (4/8/2026 7:00 am - 4/12/2026 11:59 am)			
+9		Chapter 9:User Interface Design			✓
+10		Chapter 10:Program Design			✓
+11		Chapter 11:Data Storage Design	
+IMPLEMENTATION PHASE
+12		Chapter 12:Moving Into Implementation		
+13		Chapter 13:Transition To The New System	
+Final Exam (TBD)			
+Presentation (TBD)		
+More Learning Resources
+Make-up Policy
+Exams: No make-up exams except through arrangement with the instructor prior to the exam date: and then for reasons deemed valid enough to warrant the making of a new, and potentially harder, test.
+
+AI Policy
+In this course, permission to use generative AI tools varies by assignment. For some assignments, AI tools are permitted and must be clearly cited, including the tool, prompts, and the nature of their contribution. For other assignments, AI use may be limited or entirely prohibited to support your growth as a writer and thinker. When AI tools are not permitted, their usage will be treated as an academic integrity issue. If an assignment does not specify whether AI use is permitted, you should assume that you are expected to complete the work independently without AI assistance. When in doubt about whether a tool or its usage is acceptable, please ask me. The intent is for AI to support your learning, not replace it. Once you have independently developed your ideas, you may use AI tools for writing and revising your final product. If you choose to use AI in this way, you must clearly cite the tool and explain how it was used (e.g. “This code was initially generated by Anthropic or ChatGPT and then modified by me”). If you are unsure whether a tool is acceptable to use, please check with me first.
+
+UMBC's Vision Statement
+Our UMBC community redefines excellence in higher education through an inclusive culture that connects innovative teaching and learning, research across disciplines, and civic engagement. We will advance knowledge, economic prosperity, and social justice by welcoming and inspiring inquisitive minds from all backgrounds.
+
+Technology: Access, Requirements, Resources, Support
+To help ensure that UMBC students are equipped for academic success, the Division of Information Technology (DoIT) provides a wealth of resources and support, including tips for getting online and minimum specifications to consider when purchasing a computer (doit.umbc.edu/students). UMBC does require all students to be technologically self-sufficient, which entails having a reliable personal computer (preferably a laptop with webcam) and Internet access. Since UMBC requires all students to have a computer and Internet access, financial aid may be used to meet this requirement. To learn more, students should contact their financial aid counselor at financialaid.umbc.edu/contact.
+
+Enrollment Dates and Deadlines
+Students must be familiar with the academic policies and enrollment dates and deadlines as published in the Undergraduate Catalog and the Academic Calendar . They are also responsible for managing their course enrollment(s) accordingly.
+
+Resources to Help you Succeed in Online Courses
+Many students need additional support to succeed in online courses. Click on the following links for helpful resources:
+
+UMBC's Academic Success Center (ASC) provides a range of resources to support students as they progress toward degree completion. They will continue to offer all of their services online. The ASC has created a specialized set of Online Learning Resources, including videos and guides to help students succeed while learning online.
+
+In addition, check out the following resources:
+
+Academic Success Center Resources include: Online tutoring and writing support, supplemental instruction/peer-assisted study sessions (SI PASS), placement testing, FYI academic alerts, success courses, academic advocacy, academic policy and academic success meetings.
+Tutoring and Writing Center Appointments will be online; students can make appointments using this link.
+SI PASS Supplemental Instruction (SI)/ Peer Assisted Study Sessions (PASS). The SI PASS program targets traditionally difficult academic courses, providing regularly scheduled, out-of-class review sessions, happening in Blackboard Collaborate inside your existing Blackboard course.
+Academic Advocates:> Advocates work one-on-one with students who need support navigating academic and institutional challenges, no matter how complex the concerns (i.e., personal, academic, or financial).
+Academic Success Meetings - Schedule a one-to-one virtual meeting with an Academic Success Center Professional who can help you with time management, study skills, and accessing campus resources.
+If you have a question, please contact the ASC at academicsuccess@umbc.edu
+UMBC Counseling Services
+UMBC provides counseling services for students who need them free of charge. The Counseling center is located between Susquehanna and Chesapeake Halls. It is open from 8:30 - 5:00. Call 410-455-2472 for an appointment. Visit their web site at counseling.umbc.edu for more information.
+UMBC Health Services
+UMBC provides health services for student who are ill or who need preventative care. The Health center is located on the ground floor of Erickson Hall. Student health insurance is billed for services, the remainder billed to the student's account. The Health center is open from 8:30 - 5:00. Call 410 -455- 2542 if you need an appointment or have any questions. Visit their web site at umbc.edu/uhs.
+
+Accessibility and Disability Accommodations, Guidance and Resources
+Accommodations for students with disabilities are provided for all students with a qualified disability under the Americans with Disabilities Act (ADA & ADAAA) and Section 504 of the Rehabilitation Act who request and are eligible for accommodations. The Office of Student Disability Services (SDS) is the UMBC department designated to coordinate accommodations that creates equal access for students when barriers to participation exist in University courses, programs, or activities.
+
+If you have a documented disability and need to request academic accommodations in your courses, please refer to the SDS website at sds.umbc.edu for registration information and office procedures.
+
+SDS email: disAbility@umbc.edu
+
+SDS phone: 410-455-2459
+
+If you will be using SDS approved accommodations in this class, please contact the instructor to discuss implementation of the accommodations. During remote instruction requirements due to COVID, communication and flexibility will be essential for success.
+
+Academic integrity in the Online Instruction Environment
+Academic integrity is an important value at UMBC. By enrolling in this course, each student assumes the responsibilities of an active participant in UMBC's scholarly community in which everyone's academic work and behavior are held to the highest standards of honesty. Cheating, fabrication, plagiarism, and helping others to commit these acts are all forms of academic dishonesty, and they are wrong. Academic misconduct could result in disciplinary action that may include, but is not limited to, suspension or dismissal. These principles and policies apply in both face-to-face and online classes. Resources for students about academic integrity at UMBC are available at https://academicconduct.umbc.edu/resources-for-students/.
+
+Accessibility and Disability Accommodations, Guidance and Resources
+Accommodations for students with disabilities are provided for all students with a qualified disability under the Americans with Disabilities Act (ADA & ADAAA) and Section 504 of the Rehabilitation Act who request and are eligible for accommodations. The Office of Student Disability Services (SDS) is the UMBC department designated to coordinate accommodations that creates equal access for students when barriers to participation exist in University courses, programs, or activities. If you have a documented disability and need to request academic accommodations in your courses, please refer to the SDS website at sds.umbc.edu for registration information and office procedures. SDS email: disAbility@umbc.edu SDS phone: 410-455-2459 If you will be using SDS approved accommodations in this class, please contact the instructor to discuss implementation of the accommodations. During remote instruction requirements due to COVID, communication and flexibility will be essential for success.
+
+
+Religious Observances & Accommodations
+UMBC Policy provides that students should not be penalized because of observances of their religious beliefs, and that students shall be given an opportunity, whenever feasible, to make up within a reasonable time any academic assignment that is missed due to individual participation in religious observances. It is the responsibility of the student to inform the instructor of any intended absences or requested modifications for religious observances in advance, and as early as possible. For questions or guidance regarding religious observance accommodations  please contact the Office of Equity and Inclusion at oei@umbc.edu.
+
+Hate, Bias, Discrimination and Harassment
+UMBC values safety, cultural and ethnic diversity, social responsibility, lifelong learning, equity, and civic engagement.
+
+Consistent with these principles, UMBC Policy prohibits discrimination and harassment in its educational programs and activities or with respect to employment terms and conditions based on race, creed, color, religion, sex, gender, pregnancy, ancestry, age, gender identity or expression, national origin, veterans status, marital status, sexual orientation, physical or mental disability, or genetic information.
+
+Students (and faculty and staff) who experience discrimination, harassment, hate or bias or who have such matters reported to them should use the online reporting/referral form to report discrimination, hate or bias incidents. You may report incidents that happen to you anonymously. Please note that, if you report anonymously, the University's ability to respond will be limited.
+
+
+Sexual Assault, Sexual Harassment, and Gender Based Violence and Discrimination
+UMBC Policy in addition to federal and state law (to include Title IX) prohibits discrimination and harassment on the basis of sex, sexual orientation, and gender identity in University programs and activities. Any student who is impacted by sexual harassment, sexual assault, domestic violence, dating violence, stalking, sexual exploitation, gender discrimination, pregnancy discrimination, gender-based harassment, or related retaliation should contact the University's Title IX Coordinator to make a report and/or access support and resources. The Title IX Coordinator can be reached at titleixcoordinator@umbc.edu or 410-455-1717.
+
+You can access support and resources even if you do not want to take any further action. You will not be forced to file a formal complaint or police report. Please be aware that the University may take action on its own if essential to protect the safety of the community.
+
+If you are interested in making a report, please use the Online Reporting/Referral Form.  Please note that, if you report anonymously, the University's ability to respond will be limited.
+
+Pregnant and Parenting Students
+UMBC's Policy on Sexual Misconduct, Sexual Harassment and Gender Discrimination expressly prohibits all forms of Discrimination and Harassment on the basis of sex, including pregnancy. Resources for pregnant, parenting and breastfeeding students are available through the University's Office of Equity and Inclusion.  Pregnant and parenting students are encouraged to contact the Title IX Coordinator to discuss plans and ensure ongoing access to their academic program with respect to a leave of absence or return following leave related to pregnancy, delivery, adoption, breastfeeding and/or the early months of parenting.
+
+Pregnant students and students in the early months of parenting may be entitled to accommodations under Title IX through the Office of Equity and Inclusion.
+
+In addition, students who are pregnant and have an impairment related to their pregnancy that qualifies as disability under the ADA may be entitled to accommodations through the Student Disability Service Office.
+
+Inclement Weather
+Any work or test due on a class date that has been canceled due to inclement weather will be due the next class meeting. (If the semester's last exam is postponed, it will be given during the time period assigned during the University's official Final Exam week.)

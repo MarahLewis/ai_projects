@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simple RAG Demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+  <div class="container py-4">
+    <div class="text-center mb-4">
+      <i class="bi bi-journal-code text-primary" style="font-size:2.5rem;"></i>
+      <h1 class="fw-bold mt-2 mb-1">Simple RAG Demo</h1>
+      <p class="text-muted mb-0">Upload your own text file, ask a question, and answer from retrieved context.</p>
+    </div>
+
+    <div class="card border-0 shadow-sm mb-3">
+      <div class="card-body">
+        <div class="d-flex align-items-center gap-2 mb-2">
+          <i class="bi bi-book text-primary"></i>
+          <h5 class="fw-bold mb-0">RAG Learning Resources</h5>
+        </div>
+        <p class="text-muted small mb-3">Useful articles and docs for students to understand Retrieval-Augmented Generation from beginner to advanced.</p>
+        <div class="row g-2">
+          <div class="col-md-6">
+            <a class="list-group-item list-group-item-action border rounded" href="https://arxiv.org/abs/2005.11401" target="_blank" rel="noopener noreferrer">
+              <div class="fw-semibold small">RAG Paper (2020)</div>
+              <div class="text-muted" style="font-size:.8rem;">Original research introducing Retrieval-Augmented Generation.</div>
+            </a>
+          </div>
+          <div class="col-md-6">
+            <a class="list-group-item list-group-item-action border rounded" href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-overview" target="_blank" rel="noopener noreferrer">
+              <div class="fw-semibold small">Microsoft RAG Overview</div>
+              <div class="text-muted" style="font-size:.8rem;">Clear architecture-level explanation of RAG systems.</div>
+            </a>
+          </div>
+          <div class="col-md-6">
+            <a class="list-group-item list-group-item-action border rounded" href="https://python.langchain.com/docs/concepts/rag/" target="_blank" rel="noopener noreferrer">
+              <div class="fw-semibold small">LangChain RAG Concepts</div>
+              <div class="text-muted" style="font-size:.8rem;">Simple explanation of indexing, retrieval, and generation steps.</div>
+            </a>
+          </div>
+          <div class="col-md-6">
+            <a class="list-group-item list-group-item-action border rounded" href="https://docs.pinecone.io/guides/get-started/key-concepts" target="_blank" rel="noopener noreferrer">
+              <div class="fw-semibold small">Vector DB Basics (Pinecone)</div>
+              <div class="text-muted" style="font-size:.8rem;">Learn embeddings and vector search used in modern RAG.</div>
+            </a>
+          </div>
+          <div class="col-md-6">
+            <a class="list-group-item list-group-item-action border rounded" href="https://huggingface.co/docs/transformers/model_doc/rag" target="_blank" rel="noopener noreferrer">
+              <div class="fw-semibold small">Hugging Face RAG Model Docs</div>
+              <div class="text-muted" style="font-size:.8rem;">Technical documentation for a classic RAG model implementation.</div>
+            </a>
+          </div>
+          <div class="col-md-6">
+            <a class="list-group-item list-group-item-action border rounded" href="https://www.pinecone.io/learn/retrieval-augmented-generation/" target="_blank" rel="noopener noreferrer">
+              <div class="fw-semibold small">Practical RAG Guide</div>
+              <div class="text-muted" style="font-size:.8rem;">Hands-on explanation of why and how to build RAG apps.</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-3">
+      <div class="col-lg-5">
+        <div class="card border-0 shadow-sm">
+          <div class="card-body">
+            <h5 class="fw-bold mb-3">1) Setup</h5>
+
+            <label for="apiKey" class="form-label">Groq API Key</label>
+            <input id="apiKey" type="password" class="form-control mb-2" placeholder="gsk_...">
+            <div class="small text-muted mb-3">
+              No key? Create one at
+              <a href="https://console.groq.com" target="_blank">console.groq.com</a>
+            </div>
+
+            <label for="fileInput" class="form-label">2) Upload text files</label>
+            <input id="fileInput" type="file" class="form-control mb-2" accept=".txt" multiple>
+            <div class="small text-muted mb-3">Only .txt files for this beginner demo.</div>
+
+            <div class="d-flex gap-2 mb-3">
+              <button id="clearDocsBtn" class="btn btn-outline-secondary btn-sm">
+                <i class="bi bi-trash3"></i> Clear Data
+              </button>
+              <button id="resetAllBtn" class="btn btn-outline-danger btn-sm">
+                <i class="bi bi-arrow-counterclockwise"></i> Reset Demo
+              </button>
+            </div>
+
+            <h6 class="fw-semibold">Loaded Documents</h6>
+            <ul id="docList" class="list-group list-group-flush small">
+              <li class="list-group-item text-muted">No documents loaded yet.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card border-0 shadow-sm mt-3">
+          <div class="card-body">
+            <h6 class="fw-bold mb-2">How this RAG works</h6>
+            <ol class="mb-0 small">
+              <li>Split uploaded text into chunks.</li>
+              <li>Find chunks matching words in your question.</li>
+              <li>Send those chunks as context to Groq.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-7">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-header bg-white">
+            <div class="fw-bold">3) Ask a Question</div>
+          </div>
+
+          <div id="messages" class="card-body bg-white" style="height: 420px; overflow-y: auto;">
+            <div class="text-muted small">Try: What does the document say about system design?</div>
+          </div>
+
+          <div class="border-top bg-light p-3">
+            <div id="retrievalBox" class="alert alert-secondary py-2 px-3 small d-none mb-3"></div>
+
+            <div class="input-group">
+              <input id="questionInput" class="form-control" placeholder="Ask about your uploaded data...">
+              <button id="sendBtn" class="btn btn-primary">
+                <i class="bi bi-send-fill"></i> Ask
+              </button>
+            </div>
+            <div class="small text-muted mt-2">This demo uses basic keyword retrieval for learning.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // In-memory store for uploaded documents and their chunks.
+    var documentsStore = [];
+    // Conversation history sent to Groq. Keep the system prompt as the first message.
+    var chatHistory = [
+      {
+        role: "system",
+        content:
+          "You are a helpful assistant for students learning RAG. " +
+          "Prefer answers grounded in the provided context. " +
+          "If context is weak or missing, clearly say so."
+      }
+    ];
+
+    // Cache commonly used DOM elements once.
+    var fileInput = document.getElementById("fileInput");
+    var docList = document.getElementById("docList");
+    var sendBtn = document.getElementById("sendBtn");
+    var questionInput = document.getElementById("questionInput");
+    var messages = document.getElementById("messages");
+    var retrievalBox = document.getElementById("retrievalBox");
+    var clearDocsBtn = document.getElementById("clearDocsBtn");
+    var resetAllBtn = document.getElementById("resetAllBtn");
+
+    // Wire UI events to handlers.
+    fileInput.addEventListener("change", handleFiles);
+    sendBtn.addEventListener("click", sendQuestion);
+    questionInput.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") sendQuestion();
+    });
+    clearDocsBtn.addEventListener("click", clearDocuments);
+    resetAllBtn.addEventListener("click", resetDemo);
+
+    // Read uploaded .txt files and add them to the in-memory document store.
+    function handleFiles() {
+      var files = Array.from(fileInput.files || []);
+      if (!files.length) return;
+
+      // Keep only .txt files for this beginner demo.
+      var txtFiles = files.filter(function (f) {
+        return f.name.toLowerCase().endsWith(".txt");
+      });
+
+      if (!txtFiles.length) {
+        alert("Please upload .txt files only.");
+        return;
+      }
+
+      var pending = txtFiles.length;
+
+      txtFiles.forEach(function (file) {
+        var reader = new FileReader();
+        reader.onload = function (event) {
+          var text = String(event.target.result || "");
+          // Split document into retrieval units.
+          var chunks = splitIntoChunks(text);
+
+          documentsStore.push({
+            name: file.name,
+            text: text,
+            chunks: chunks
+          });
+
+          // Re-render after all selected files are processed.
+          pending -= 1;
+          if (pending === 0) renderDocuments();
+        };
+        reader.readAsText(file);
+      });
+    }
+
+    // Chunk text by blank lines so each paragraph can be retrieved independently.
+    function splitIntoChunks(text) {
+      return text
+        .split(/\n\s*\n/g)
+        .map(function (part) { return part.trim(); })
+        .filter(function (part) { return part.length > 0; });
+    }
+
+    // Show uploaded documents and how many chunks each one produced.
+    function renderDocuments() {
+      if (!documentsStore.length) {
+        docList.innerHTML = '<li class="list-group-item text-muted">No documents loaded yet.</li>';
+        return;
+      }
+
+      var html = "";
+      documentsStore.forEach(function (doc) {
+        html += '<li class="list-group-item d-flex justify-content-between align-items-center">';
+        html += '<span class="text-truncate" style="max-width: 70%;">' + escapeHtml(doc.name) + '</span>';
+        html += '<span class="badge bg-primary rounded-pill">' + doc.chunks.length + ' chunks</span>';
+        html += '</li>';
+      });
+      docList.innerHTML = html;
+    }
+
+    // Basic retrieval: score chunk relevance by counting keyword overlaps.
+    function retrieveTopChunks(query, topK) {
+      var words = query
+        .toLowerCase()
+        .split(/[^a-z0-9]+/g)
+        // Ignore 1-letter tokens to reduce noise.
+        .filter(function (w) { return w.length > 1; });
+
+      var scored = [];
+
+      documentsStore.forEach(function (doc) {
+        doc.chunks.forEach(function (chunk, index) {
+          var lower = chunk.toLowerCase();
+          var score = 0;
+
+          words.forEach(function (w) {
+            if (lower.indexOf(w) !== -1) score += 1;
+          });
+
+          if (score > 0) {
+            scored.push({
+              docName: doc.name,
+              chunkIndex: index,
+              chunkText: chunk,
+              score: score
+            });
+          }
+        });
+      });
+
+      // Highest score first, then keep only top K chunks.
+      scored.sort(function (a, b) { return b.score - a.score; });
+      return scored.slice(0, topK || 3);
+    }
+
+    // Build the final prompt that combines retrieved context with the user question.
+    function buildRagPrompt(userQuestion, matches) {
+      var context = "No relevant context found in uploaded documents.";
+
+      if (matches.length) {
+        context = matches.map(function (m, i) {
+          return "Context " + (i + 1) + " from " + m.docName + ":\n" + m.chunkText;
+        }).join("\n\n---\n\n");
+      }
+
+      return (
+        "Use the context below to answer the student question.\n" +
+        "If the answer is not in the context, say that clearly.\n\n" +
+        context + "\n\n" +
+        "Student question: " + userQuestion
+      );
+    }
+
+    // Main ask flow: validate input, retrieve context, call Groq, render answer.
+    async function sendQuestion() {
+      var apiKey = document.getElementById("apiKey").value.trim();
+      var question = questionInput.value.trim();
+
+      if (!question) return;
+      if (!apiKey) {
+        alert("Please paste your Groq API key.");
+        return;
+      }
+      if (!documentsStore.length) {
+        alert("Please upload at least one .txt file first.");
+        return;
+      }
+
+      addMessage("You", question, true);
+      questionInput.value = "";
+      setBusy(true);
+
+      // Retrieve relevant chunks before calling the model.
+      var matches = retrieveTopChunks(question, 3);
+      showRetrieved(matches);
+
+      // Send context-augmented question to the model.
+      var ragPrompt = buildRagPrompt(question, matches);
+      chatHistory.push({ role: "user", content: ragPrompt });
+
+      var thinkingEl = addMessage("Assistant", "Thinking...", false, true);
+
+      try {
+        var response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + apiKey
+          },
+          body: JSON.stringify({
+            model: "llama-3.1-8b-instant",
+            messages: chatHistory
+          })
+        });
+
+        var data = await response.json();
+        if (!response.ok) {
+          throw new Error((data.error && data.error.message) || "Request failed.");
+        }
+
+        var answer =
+          data &&
+          data.choices &&
+          data.choices[0] &&
+          data.choices[0].message &&
+          data.choices[0].message.content
+            ? data.choices[0].message.content
+            : "No answer returned.";
+
+        chatHistory.push({ role: "assistant", content: answer });
+        thinkingEl.textContent = answer;
+        thinkingEl.classList.remove("fst-italic", "text-muted");
+      } catch (err) {
+        thinkingEl.textContent = "Error: " + err.message;
+        thinkingEl.classList.remove("text-muted");
+        thinkingEl.classList.add("text-danger");
+        // Remove the last user turn so history stays consistent after failed requests.
+        chatHistory.pop();
+      } finally {
+        setBusy(false);
+      }
+    }
+
+    // Render one chat bubble in the conversation panel.
+    function addMessage(sender, text, isUser, muted) {
+      var wrap = document.createElement("div");
+      wrap.className = "mb-3 d-flex " + (isUser ? "justify-content-end" : "justify-content-start");
+
+      var bubbleClass = isUser ? "bg-primary text-white" : "bg-light border";
+      var mutedClass = muted ? " fst-italic text-muted" : "";
+
+      wrap.innerHTML =
+        '<div style="max-width: 85%;">' +
+        '<div class="small text-muted mb-1">' + escapeHtml(sender) + '</div>' +
+        '<div class="rounded-3 px-3 py-2 ' + bubbleClass + mutedClass + '" style="white-space: pre-wrap;">' +
+        escapeHtml(text) +
+        "</div></div>";
+
+      messages.appendChild(wrap);
+      messages.scrollTop = messages.scrollHeight;
+      return wrap.querySelector("div div");
+    }
+
+    // Show which chunks were retrieved so students can see the RAG step.
+    function showRetrieved(matches) {
+      if (!matches.length) {
+        retrievalBox.classList.remove("d-none", "alert-secondary");
+        retrievalBox.classList.add("alert-warning");
+        retrievalBox.innerHTML = "Retrieved context: no strong matches found.";
+        return;
+      }
+
+      var html = "<strong>Retrieved context:</strong><br>";
+      matches.forEach(function (m, i) {
+        var preview = m.chunkText.length > 120 ? m.chunkText.slice(0, 120) + "..." : m.chunkText;
+        html += (i + 1) + ". " + escapeHtml(m.docName) + " (score " + m.score + ") - " + escapeHtml(preview) + "<br>";
+      });
+
+      retrievalBox.classList.remove("d-none", "alert-warning");
+      retrievalBox.classList.add("alert-secondary");
+      retrievalBox.innerHTML = html;
+    }
+
+    // Clear only uploaded documents and retrieval panel.
+    function clearDocuments() {
+      documentsStore = [];
+      fileInput.value = "";
+      renderDocuments();
+      retrievalBox.classList.add("d-none");
+    }
+
+    // Reset documents + chat so the demo can start from a clean state.
+    function resetDemo() {
+      clearDocuments();
+      chatHistory = [chatHistory[0]];
+      messages.innerHTML = '<div class="text-muted small">Demo reset. Upload text and ask again.</div>';
+      questionInput.value = "";
+    }
+
+    // Lock/unlock input controls while a request is running.
+    function setBusy(isBusy) {
+      sendBtn.disabled = isBusy;
+      questionInput.disabled = isBusy;
+      sendBtn.innerHTML = isBusy
+        ? '<span class="spinner-border spinner-border-sm me-1"></span>Sending'
+        : '<i class="bi bi-send-fill"></i> Ask';
+    }
+
+    // Escape HTML before injecting user/model text into innerHTML.
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+    }
+  </script>
+</body>
+</html>
